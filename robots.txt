@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://piepaso.github.io/sito-artiincantiere/sitemap.xml
