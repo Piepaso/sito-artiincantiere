@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corsi | Arti in Cantiere</title>
+    <meta
+      name="description"
+      content="Corsi creativi della nostra associazione: posti, date, frequenza e contatti."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="logo" href="index.html">Arti in Cantiere</a>
+        <nav class="main-nav" aria-label="Navigazione principale">
+          <a href="index.html">Home</a>
+          <a class="active" href="corsi.html">Corsi</a>
+          <a href="coworking.html">Coworking</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero inner-hero">
+        <div class="container hero-grid single-column">
+          <div class="hero-copy">
+            <p class="eyebrow">Formazione</p>
+            <h1>Corsi aperti alle persone curiose</h1>
+            <p>
+              In questa pagina il gestore puo aggiungere o aggiornare i corsi da Publii.
+              Ogni scheda contiene dati utili e un contatto diretto per informazioni.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Corsi disponibili</h2>
+          <p class="section-intro">
+            Placeholder: sostituisci titolo, descrizione e foto con i contenuti reali.
+          </p>
+
+          <div class="card-grid course-grid">
+            <article class="card course-card" data-total="12" data-occupied="5">
+              <img
+                src="https://picsum.photos/seed/corso-cucito/700/430"
+                alt="Corso di cucito creativo"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3>Corso Cucito Base</h3>
+                <p>
+                  Placeholder: introduzione alla macchina da cucire, piccoli progetti
+                  pratici e nozioni sui materiali.
+                </p>
+                <ul class="meta-list">
+                  <li><strong>Prezzo:</strong> EUR 120</li>
+                  <li><strong>Date:</strong> dal 12 maggio al 30 giugno</li>
+                  <li><strong>Orari:</strong> martedi 18:30 - 20:30</li>
+                  <li><strong>Frequenza:</strong> 1 incontro a settimana</li>
+                  <li><strong>Contatto:</strong> corsi@artiincantiere.it</li>
+                </ul>
+                <div class="availability" aria-live="polite">
+                  <span class="badge badge-total">Posti totali: <b>12</b></span>
+                  <span class="badge badge-free">Posti disponibili: <b class="spots-free">7</b></span>
+                </div>
+                <div class="occupancy-tools">
+                  <button class="btn btn-small js-minus" type="button">-1 posto occupato</button>
+                  <button class="btn btn-small js-plus" type="button">+1 posto occupato</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card course-card" data-total="10" data-occupied="3">
+              <img
+                src="https://picsum.photos/seed/corso-modellistica/700/430"
+                alt="Corso di modellistica"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3>Corso Modellistica</h3>
+                <p>
+                  Placeholder: tecniche di modellistica sartoriale, misure e sviluppo
+                  cartamodello.
+                </p>
+                <ul class="meta-list">
+                  <li><strong>Prezzo:</strong> EUR 180</li>
+                  <li><strong>Date:</strong> dal 10 giugno al 22 luglio</li>
+                  <li><strong>Orari:</strong> giovedi 19:00 - 21:30</li>
+                  <li><strong>Frequenza:</strong> 1 incontro a settimana</li>
+                  <li><strong>Contatto:</strong> formazione@artiincantiere.it</li>
+                </ul>
+                <div class="availability" aria-live="polite">
+                  <span class="badge badge-total">Posti totali: <b>10</b></span>
+                  <span class="badge badge-free">Posti disponibili: <b class="spots-free">7</b></span>
+                </div>
+                <div class="occupancy-tools">
+                  <button class="btn btn-small js-minus" type="button">-1 posto occupato</button>
+                  <button class="btn btn-small js-plus" type="button">+1 posto occupato</button>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="note-box">
+            <p>
+              Nota gestione: i pulsanti +1/-1 aggiornano i posti disponibili in questa pagina
+              durante la sessione corrente del browser. Per rendere permanente l'aggiornamento,
+              modifica il valore di <strong>data-occupied</strong> nella scheda del corso da Publii.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>Arti in Cantiere - Associazione culturale</p>
+        <p><a href="mailto:info@artiincantiere.it">info@artiincantiere.it</a></p>
+        <p class="small">&copy; <span id="year"></span> Tutti i diritti riservati</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>
