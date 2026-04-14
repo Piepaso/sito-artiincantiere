@@ -102,10 +102,90 @@
       </div>
     </main>
 
+    <div class="gallery-modal" id="gallery-modal" aria-hidden="true">
+      <div class="gallery-modal-dialog" role="dialog" aria-modal="true" aria-label="Immagine ingrandita">
+        <button class="gallery-modal-close" id="gallery-modal-close" type="button" aria-label="Chiudi popup">&times;</button>
+        <div class="gallery-modal-viewer" id="gallery-modal-viewer">
+          <img class="gallery-modal-image" id="gallery-modal-image" src="" alt="" />
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer">
       <div class="container">
         <p>Arti in Cantiere Associazione di promozione sociale. Rimini via Cairoli 87, tel. 338 8687112</p>
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const galleryImages = document.querySelectorAll(".gallery-grid .content-panel img");
+        const modal = document.getElementById("gallery-modal");
+        const modalImage = document.getElementById("gallery-modal-image");
+        const modalViewer = document.getElementById("gallery-modal-viewer");
+        const closeButton = document.getElementById("gallery-modal-close");
+        let lastFocusedImage = null;
+
+        function openModal(image) {
+          lastFocusedImage = image;
+          modalImage.src = image.src;
+          modalImage.alt = image.alt;
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          closeButton.focus();
+          modalImage.style.transformOrigin = "50% 50%";
+        }
+
+        function closeModal() {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+          modalImage.src = "";
+          document.body.style.overflow = "";
+          if (lastFocusedImage) {
+            lastFocusedImage.focus();
+          }
+        }
+
+        galleryImages.forEach((image) => {
+          image.tabIndex = 0;
+          image.setAttribute("role", "button");
+          image.setAttribute("aria-label", "Apri immagine ingrandita: " + image.alt);
+
+          image.addEventListener("click", () => openModal(image));
+          image.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              openModal(image);
+            }
+          });
+        });
+
+        modalViewer.addEventListener("mousemove", (event) => {
+          const rect = modalViewer.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+          modalImage.style.transformOrigin = `${x}% ${y}%`;
+        });
+
+        modalViewer.addEventListener("mouseleave", () => {
+          modalImage.style.transformOrigin = "50% 50%";
+        });
+
+        closeButton.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            closeModal();
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && modal.classList.contains("is-open")) {
+            closeModal();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
